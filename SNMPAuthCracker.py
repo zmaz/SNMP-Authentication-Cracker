@@ -12,7 +12,7 @@ passlist = open('', 'rb').read().splitlines()
 
 for password in passlist:
 
-	result = subprocess.check_output(["snmpkey", "md5", password, msgAuthoritativeEngineID]).decode('utf-8')
+	result = subprocess.check_output(["snmpkey", "md5", password, msgAuthoritativeEngineID]).decode()
 	AK = result.split('\n')[0].split("authKey: 0x")
 	authKey = ''.join(AK)
 
